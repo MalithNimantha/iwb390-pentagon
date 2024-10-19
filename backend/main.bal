@@ -1,5 +1,13 @@
-import ballerina/io;
+import ballerina/http;
+import ballerinax/mongodb;
 
-public function main() {
-    io:println("Hello, World!");
+service on new http:Listener(9090) {
+
+    resource function get jobs() returns Job[]|error {
+        mongodb:Collection jobs = check jobsDb->getCollection("jobs");
+        stream<Job, error?> result = check jobs->find();
+        return from Job j in result
+            select j;
+    }
+
 }
