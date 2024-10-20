@@ -11,6 +11,10 @@ service on new http:Listener(9091) {
             select j;
     }
 
+    resource function get jobs/[int phoneNumber]() returns Job|error {
+        return getJob(jobsDb, phoneNumber);
+    }
+
     resource function post jobs(JobInput input) returns Job|error {
         string id = uuid:createType1AsString();
         Job job = {id, ...input};
