@@ -10,7 +10,7 @@ public type JobInput record {|
 |};
 
 public type JobUpdate record {|
-    string description?;
-    int phoneNumber?;
-    string status?;
+    string description;
+    int phoneNumber;
+    string status;
 |};

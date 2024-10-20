@@ -13,12 +13,15 @@ name = "backend"
 version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "uuid"},
 	{org = "ballerinai", name = "observe"},
-	{org = "ballerinax", name = "mongodb"}
+	{org = "ballerinax", name = "mongodb"},
+	{org = "ballerinax", name = "twilio"}
 ]
 modules = [
-	{org = "asus", packageName = "backend", moduleName = "backend"}
+	{org = "asus", packageName = "backend", moduleName = "backend"},
+	{org = "asus", packageName = "backend", moduleName = "backend.messageOp"}
 ]
 
 [[package]]
@@ -111,6 +114,9 @@ version = "1.6.1"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
+]
+modules = [
+	{org = "ballerina", packageName = "io", moduleName = "io"}
 ]
 
 [[package]]
@@ -321,5 +327,23 @@ dependencies = [
 ]
 modules = [
 	{org = "ballerinax", packageName = "mongodb", moduleName = "mongodb"}
+]
+
+[[package]]
+org = "ballerinax"
+name = "twilio"
+version = "4.0.1"
+dependencies = [
+	{org = "ballerina", name = "constraint"},
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "os"},
+	{org = "ballerina", name = "url"},
+	{org = "ballerinai", name = "observe"}
+]
+modules = [
+	{org = "ballerinax", packageName = "twilio", moduleName = "twilio"},
+	{org = "ballerinax", packageName = "twilio", moduleName = "twilio.mock"},
+	{org = "ballerinax", packageName = "twilio", moduleName = "twilio.oas"}
 ]
 
